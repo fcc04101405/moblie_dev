@@ -3,6 +3,7 @@ package com.example.fengchengcheng.myapplication;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class DisplayMessageActivity extends AppCompatActivity {
@@ -16,5 +17,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
         TextView textView = new TextView(this);
         textView.setTextSize(40);
         textView.setText(message);
+        RelativeLayout relativelayout= findViewById(R.id.content);
+        relativelayout.addView(textView);
     }
 }

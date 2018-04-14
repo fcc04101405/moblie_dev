@@ -6,19 +6,18 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.fengchengcheng.myapplication.MyActivity"
-    tools:showIn="@layout/activity_my"
-    android:orientation="horizontal"
-    >
-<EditText android:id="@+id/edit_message"
-    android:layout_weight="1"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:hint="@string/edit_message" />
-<Button
-    android:text="@string/button_send"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:onClick="SendMessage"
-    />
+    tools:showIn="@layout/activity_my">
 
+        <EditText
+            android:id="@+id/edit_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/edit_message" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="SendMessage"
+            android:text="@string/button_send" />
 </LinearLayout>

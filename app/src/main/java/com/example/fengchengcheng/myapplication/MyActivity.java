@@ -19,7 +19,9 @@ public class MyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //toolbar.setNavigationIcon(R.drawable.ic_action_search);
+        setSupportActionBar(toolbar);//因为高版本下toolbar取代了actionbar，所以要塞一把
+        getSupportActionBar().setTitle("FirstActivity");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -44,13 +46,22 @@ public class MyActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id){
+            case R.id.action_search:
+                //openSearch();
+                return true;
+            case R.id.action_settings:
+                openSettings();
+                return true;
         }
-
         return super.onOptionsItemSelected(item);
+    }
+    private void openSettings(){
+        Intent intent =new Intent(this,news_articles.class);
+        EditText editText = (EditText) findViewById(R.id.edit_message);
+        String message = editText.getText().toString();
+        intent.putExtra(EXTRA__MY_MESSAGE,message);
+        startActivity(intent);
     }
     public void SendMessage(View view){
         Intent intent = new Intent(this, DisplayMessageActivity.class);
